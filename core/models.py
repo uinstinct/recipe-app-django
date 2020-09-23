@@ -5,11 +5,22 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 class UserManager(BaseUserManager):
     def create_user(self,email,password=None, **extra_fields):
         """Creates and saves a new user"""
+        if not email:
+            raise ValueError('The user email has not been provided')
         normalized_email = self.normalize_email(email)
         user = self.model(email=normalized_email,**extra_fields)
         user.set_password(password)
         user.save(using=self._db)
 
+        return user
+
+    def create_superuser(self,email,password):
+        """Create a super user from the command line"""
+        user = self.create_user(email,password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using = self._db)
+        
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):

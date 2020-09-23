@@ -19,3 +19,16 @@ class ModelTests(TestCase):
         user = get_user_model().objects.create_user(email,'passwordtest')
 
         self.assertEqual(user.email,email.lower())
+
+    def test_check_user_has_provided_email(self):
+        """Test whether the email has been provided by the user"""
+        with self.assertRaises(ValueError):
+            get_user_model().objects.create_user(None, 'noemailProvided')
+
+    def test_create_new_superuser(self):
+        user = get_user_model().objects.create_superuser(
+            'mater@recipe.com',
+            'mater'
+            )
+        self.assertTrue(user.is_staff)
+        self.assertTrue(user.is_superuser)
