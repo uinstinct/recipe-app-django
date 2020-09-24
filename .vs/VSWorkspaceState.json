@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app"
+    "\\app",
+    "\\core",
+    "\\core\\tests"
   ],
-  "SelectedNode": "\\app\\tests.py",
+  "SelectedNode": "\\.flake8",
   "PreviewInSolutionExplorer": false
 }
