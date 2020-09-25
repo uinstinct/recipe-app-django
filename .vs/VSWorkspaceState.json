@@ -5,6 +5,6 @@
     "\\core",
     "\\core\\tests"
   ],
-  "SelectedNode": "\\.flake8",
+  "SelectedNode": "\\app\\settings.py",
   "PreviewInSolutionExplorer": false
 }
