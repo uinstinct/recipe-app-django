@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/',include('user.urls')), # extend the url to the user app 
+    path('api/recipe/',include('recipe.urls')),
 ]
