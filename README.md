@@ -21,3 +21,11 @@ DATABASES = {
     }
 }
 ```
+
+### To Start Server
+
+*Run* `python manage.py runserver`
+
+### To Test
+
+*Run* `python manage.py test`
